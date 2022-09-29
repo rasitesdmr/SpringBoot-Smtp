@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  spring-boot:
+    container_name: springboot_smtp
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.mail.host=smtp.gmail.com
+      - spring.mail.port=587
+      - spring.mail.username=
+      - spring.mail.password=
+      - spring.mail.properties.mail.smtp.auth=true
+      - spring.mail.properties.mail.smtp.starttls.enable=true
+
+    networks:
+      - comment
+
+networks:
+  comment:
+    driver: bridge
